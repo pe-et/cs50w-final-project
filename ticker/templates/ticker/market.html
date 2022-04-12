@@ -1,0 +1,35 @@
+{% extends 'ticker/base.html' %}
+{% load static %}
+
+{% block body %}
+
+   <div class="row">
+      <div class="col">
+         <h2 class="sub-head">Market</h2>
+      </div>
+   </div>
+   <hr>
+   <div class="row">
+         <div class="col-auto">
+            <a class="ticker-div" href="#" data-bs-toggle="tooltip" data-bs-placement="left" title="Current market price of Bitcoin (BTC) denominated in US Dollars (USD)"">
+               <div class="h2">BTC/USD</div>
+               <div id="ticker"></div>
+            </a>
+         </div>
+         <div class="col"></div>
+         <div class="col-auto">
+            <a class="ticker-div" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="A satoshi (SAT) is the smallest sub-unit of Bitcoin. 1 satoshi represents 0.00000001 BTC.">
+               <div class="h2">USD/SATS</div>
+               <div id="satoshi"></div>
+            </a>
+         </div>
+         <div class="col"></div>
+   </div>
+
+   <hr>
+
+   <div class="row">
+      {% include 'ticker/orders.html' %}
+   </div>
+{% endblock %}
+{% block script %}<script src="{% static 'ticker/market.js' %}"></script>{% endblock %}

@@ -1,0 +1,76 @@
+.footer, body {
+  font-family: monospace;
+  font-size: 20px;
+  background-color: #212529;
+  color: #fff;
+}
+
+input, form-control, select {
+  background-color: #212529 !important;
+  color: #fff !important;
+  border-radius: 20px !important;
+}
+
+.form-control:focus {
+  border-color: #fff;
+  box-shadow: inset 0 1px 1px rgba(222, 222, 222, 0.8), 0 0 8px rgba(222, 222, 222, 0.8);
+}
+
+/* Divs for AEP & ASP */
+.averages {
+  border: 2px solid #fff;
+  box-shadow: inset 0 1px 1px rgba(222, 222, 222, 0.8), 0 0 8px rgba(222, 222, 222, 0.8);
+  width: auto;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.results, market-header {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+a, a:active, a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 0 0 4px #fff;
+}
+
+.footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.welcome {
+  text-align: center;
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.row {
+  margin: 40px 0px;
+}
+
+.sub-head {
+  text-align: center;
+  font-family: inherit;
+}
+
+.page-item, .page-link {
+  background-color: #212529 !important;
+  color: #fff !important;
+}
+
+.view-control {
+  display: "none";
+}
+
+/*# sourceMappingURL=styles.css.map */

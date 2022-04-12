@@ -1,0 +1,61 @@
+{% extends 'ticker/base.html' %}
+{% load static %}
+
+{% block body %}
+
+   <div class="row">
+      <div class="col">
+         <h2 class="sub-head">Analysis</h2>
+      </div>
+   </div>
+   <hr>
+   <div class="row">
+      <table class="table table-dark table-borderless">
+            <th class="h2">{{ user }}'s Portfolio</th>
+            <th class="h2">'Buy & Hold Benchmark'</th>
+
+            <tr>
+               <td>BTC: {{ asset|floatformat:8 }}</td>
+               <td>BTC: {{ initial_units|floatformat:8 }}</td>
+            </tr>
+            <tr>
+               <td>Cash: {{ cash|floatformat:2 }}</td>
+               <td></td>
+            </tr>
+            <tr>
+               <td></td>
+               <td></td>
+            </tr>
+            <tr>
+               <td class="h4">Portfolio Current Value:</td>
+               <td class="h4">Benchmark Current Value:</td>
+            </tr>
+            <tr>
+               <td class="h4">${{ portfolio|floatformat:2 }}</td>
+               <td class="h4">${{ benchmark|floatformat:2 }}</td>
+            </tr>
+      </table>
+   </div>
+   <hr>
+   <div class="row">
+
+      <!-- Average Entry Price & Average Sell Price -->
+      {% include 'ticker/averageprice.html' with aep=aep asp=asp %}
+   </div>
+   <hr>
+   <!-- Evaluation of user activity compared to benchmark -->
+   <div class="h2 sub-head">How am I doing?</div>
+   <div class="row">
+      <div class="col results">
+         {% if portfolio > benchmark %}
+            <p>Congratulations, your activity has outperformed a buy and hold strategy. Consider yourself an anomaly.</p>
+         {% elif portfolio == benchmark %}
+            <p>You've arrived at the highly unlikely outcome of parity to a buy and hold strategy. Either you haven't made any trades, or your active strategy is producing the same outcome as a passive one.</p>
+         {% elif benchmark > portfolio %}
+            <p>Your activity has resulted in a net loss. Consider a buy and hold strategy.</p>
+         {% endif %}
+      </div>
+   </div>
+   <hr>
+
+{% endblock %}

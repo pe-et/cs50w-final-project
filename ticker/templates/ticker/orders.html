@@ -1,0 +1,79 @@
+{% load static %}
+
+   <!-- Buy view -->
+   <form class="container mb-3 mt-3 order-form view-control" id="buy-view" action="{% url 'buy' %}" method="post">
+      {% csrf_token %}
+      <div class="row">
+
+         <div class="col-auto mb-3 mt-3">
+            <button class="btn btn-sm btn-light switch">Buy</button>
+            <button class="btn btn-sm btn-dark switch" data-val="sell-view">Sell</button>
+         </div>
+
+         <div class="form-outline form-white col-sm-3 mb-3 mt-3">
+            <label class="visually-hidden" for="buy-asset">Asset</label>
+            <input type="number" class="form-control" id="buy-asset" name="buy-asset" min="0.00000001" step="0.00000001" autocomplete="off">
+            <small id="assetFieldHelp" class="form-text text-muted">Amount of BTC  to buy</small>
+         </div>
+
+         <span class="col-auto mb-3 mt-3 mth">x</span>
+
+         <div class="col-sm-3 mb-3 mt-3">
+            <label class="visually-hidden" for="current-price">Current Price</label>
+            <input type="text" class="form-control" id="current-buy-price" name="current-buy-price" disabled>
+            <small id="CurrentPriceHelp" class="form-text text-muted">Buy at a fixed price per BTC</small>
+         </div>
+
+         <span class="col-auto mb-3 mt-3 mth">=</span>
+
+         <div class="col-sm-3 mb-3 mt-3">
+            <label class="visually-hidden" for="sell-cash">Cash</label>
+            <input type="number" class="form-control" id="sell-cash" name="sell-cash" min="0.01" step="0.01" autocomplete="off">
+            <small id="CashFieldHelp" class="form-text text-muted">Amount of USD to spend</small>
+         </div>
+
+      </div>
+      <div class="row justify-content-center order-btn">
+         <input type="submit" class="btn btn-outline-light btn-block" id="buy" value="Buy BTC with USD">
+      </div>
+   </form>
+
+   <!-- Sell view -->
+   <form class="container mb-3 mt-3 order-form view-control" id="sell-view" action="{% url 'sell' %}" method="post">
+      {% csrf_token %}
+         <div class="row">
+
+            <div class="col-auto mb-3 mt-3">
+               <button class="btn btn-sm btn-dark switch" data-val="buy-view">Buy</button>
+               <button class="btn btn-sm btn-light switch">Sell</button>
+            </div>
+
+            <div class="col-sm-3 mb-3 mt-3">
+               <label class="visually-hidden" for="sell-asset">Asset</label>
+               <input type="number" class="form-control" id="sell-asset" name="sell-asset" min="0.00000001" step="0.00000001" autocomplete="off">
+               <small id="assetFieldHelp" class="form-text text-muted">Amount of BTC to sell</small>
+            </div>
+
+            <span class="col-auto mb-3 mt-3 mth">x</span>
+
+            <div class="col-sm-3 mb-3 mt-3">
+               <label class="visually-hidden" for="current-price">Current Price</label>
+               <input type="text" class="form-control" id="current-sell-price" name="current-sell-price" disabled>
+               <small id="CurrentPriceHelp" class="form-text text-muted">Sell at a fixed price per BTC</small>
+            </div>
+
+            <span class="col-auto mb-3 mt-3 mth">=</span>
+
+            <div class="col-sm-3 mb-3 mt-3">
+               <label class="visually-hidden" for="buy-cash">Cash</label>
+               <input type="number" class="form-control" id="buy-cash" name="buy-cash" min="0.01" step="0.01" autocomplete="off">
+               <small id="CashFieldHelp" class="form-text text-muted">Amount of USD to receive</small>
+            </div>
+
+         </div>
+         <div class="row justify-content center order-btn">
+            <input type="submit" class="btn btn-outline-light btn-block" id="sell" value="Sell BTC for USD">
+         </div>
+   </form>
+
+{% block script %}<script src="{% static 'ticker/market.js' %}"></script>{% endblock %}

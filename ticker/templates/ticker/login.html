@@ -1,0 +1,30 @@
+{% extends 'ticker/base.html' %}
+
+{% block body %}
+
+   <div class="container welcome">
+
+      <h2>Log In</h2>
+      <br>
+
+      <form action="{% url 'login' %}" method="post">
+         {% csrf_token %}
+         <div class="form-outline form-white mb-3 mt-3">
+            <input class="form-control" type="text" name="username" id="username" placeholder="Username" autocomplete="off" autofocus required>
+            <label for="username" class="visually-hidden">Username</label>
+         </div>
+         <div class="form-outline mb-3 mt-3">
+            <input class="form-control" type="password" name="pwd" id="pwd" placeholder="Password" autocomplete="off" required>
+            <label for="pwd" class="visually-hidden">Password</label>
+         </div>
+         <input class="btn btn-outline-light btn-lg btn-block" type="submit" value="Log In">
+      </form>
+      <br><br>
+
+      <p>OR</p>
+
+      <a href="{% url 'register' %}">Create an Account</a>
+      <br><br>
+   </div>
+
+{% endblock %}

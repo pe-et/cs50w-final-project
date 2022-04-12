@@ -1,0 +1,72 @@
+$dark: rgb(33, 37, 41);
+$white: #fff;
+$shadow: inset 0 1px 1px rgba(222, 222, 222, 0.8), 0 0 8px rgba(222, 222, 222, 0.8);
+$text-shadow: 0 0 4px #fff;
+$border: 2px solid $white;
+
+%base {
+   font-family: monospace;
+   font-size: 20px;
+   background-color: $dark;
+   color: $white;
+}
+body {
+   @extend %base;
+}
+input, form-control, select {
+   background-color: $dark!important;
+   color: $white!important;
+   border-radius: 20px!important;
+}
+.form-control:focus {
+   border-color: $white;
+   box-shadow: $shadow;
+}
+/* Divs for AEP & ASP */
+.averages {
+   border: $border;
+   box-shadow: $shadow;
+   width: auto;
+   border-radius: 20px;
+   padding: 10px;
+}
+.results, market-header {
+   justify-content: center;
+   display: flex;
+   align-items: center;
+}
+a, a:active, a:hover {
+   color: $white;
+   text-decoration: none;
+}
+a:hover {
+   text-shadow: $text-shadow;
+}
+.footer {
+   @extend %base;
+   position: fixed;
+   left: 0px;
+   bottom: 0px;
+   width: 100%;
+   text-align: center;
+   margin-top: 20px;
+}
+.welcome {
+   text-align: center;
+   max-width: 50%;
+   max-height: 50%;
+}
+.row {
+   margin: 40px 0px;
+}
+.sub-head {
+   text-align: center;
+   font-family: inherit;
+}
+.page-item, .page-link {
+   background-color: $dark !important;
+   color: $white !important;
+}
+.view-control {
+   display: 'none';
+}

@@ -1,0 +1,39 @@
+{% extends 'ticker/base.html' %}
+{% load static %}
+
+{% block body %}
+   <div class="row">
+      <h2 class="sub-head">Transaction History</h2>
+   </div>
+   <hr>
+   <div class="row">
+         {% if page_obj %}
+            <div class="table-responsive">
+               <table class="table table-dark table-striped">
+                  <th>Transaction Id</th>
+                  <th>Ticker</th>
+                  <th>Units</th>
+                  <th>Cost Basis</th>
+                  <th>Current Price</th>
+                  <th>Timestamp</th>
+                  {% for transaction in page_obj %}
+                     <tr>
+                        <td>{{ transaction.id }}</td>
+                        <td>{{ transaction.ticker }}</td>
+                        <td>{{ transaction.units|floatformat:8 }}</td>
+                        <td>${{ transaction.cost_basis|floatformat:2 }}</td>
+                        <td>{{ transaction.current_price|floatformat:2 }}</td>
+                        <td>{{ transaction.timestamp }}</td>
+                     </tr>
+                  {% endfor %}
+               </table>
+            </div>
+
+            <!-- pagination -->
+            {% include 'ticker/pagination.html' with page_obj=page_obj %}
+
+         {% else %}
+            No transactions to display...
+         {% endif %}
+   </div>
+{% endblock %}
