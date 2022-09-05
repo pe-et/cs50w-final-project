@@ -48,51 +48,40 @@ While my final project may borrow working parts or features from previous projec
 
 It's a mobile-responsive app, utilizing Python, Django and Sqlite on the backend and using HTML, CSS, JavaScript, Bootstrapa and SASS to handle the front end.
 
-### Files and Folders
-
-* btfd - project directory
-  * .env - environment variable containing django secret key and api key, included in the course submission to facilitate grading
-* ticker - app directory
-  * static/ticker - contains the apps JavaScript, CSS and SASS
-    * market.js - JavaScript for market.html and orders.html
-    * styles.css - CSS file compiled from style.scss
-    * styles.css.map - CSS sourcemap allowing the browser to map CSS from SASS
-    * styles.scss - SASS file
-  * templates/ticker - app's template files
-    * analysis.html - template for the 'analysis' page
-    * averageprice.html - included in analysis.html. Displays average entry and sell prices
-    * base.html - the apps base template
-    * login.html - template for the login screen
-    * market.html - main template for the 'market' page
-    * messages.html - Handles Django messages, included in base.html
-    * orders.html - order forms, included in market.html
-    * pagination.html - implements pagination, included in transactions.html
-    * register.html - template for register screen
-    * transactions.html - template for displaying transaction history
-  * admin.py - models and other code pertaining to django admin
-  * apps.py - app configuration code
-  * models.py - contains 3 database models used in the app
-  * urls.py - url routing for the ticker application
-  * views.py - backend for the app views as well as various helper functions
-* requirements.txt - project dependencies
-* README.md - project's readme file. You're reading it
-
 ### How to Install and Run the Application
 
-
-* Setup and activate a virtual environment (optional)
-* Install project dependencies:
+Clone the project
 ```
-pip install -r requirements.txt
+   git clone https://github.com/pe-et/cs50w_final_project
 ```
-* Run server:
+cd into the 'btfd' directory (where manage.py is located), create and activate a virtual environment
 ```
-python manage.py runserver
+   python -m venv .venv
+   .venv/Scripts/Activate.ps1
 ```
-* Open a browser tab and navigate to localhost:
+Install dependencies
 ```
- 127.0.0.1:8000
+   pip install -r requirements.txt
 ```
+Generate a new secret key
+```
+   python -c "import secrets; print(secrets.token_urlsafe())"
+```
+Create a .env file in the same directory as manage.py. Copy paste the secret key into it along with the following:
+```
+   DEBUG=True
+   SECRET_KEY=<secret key goes here>
+   DATABASE_URL=sqlite:///db.sqlite3
+```
+Make migrations
+```
+   python manage.py migrate
+```
+Run the application on a local server
+```
+   python manage.py runserver
+```
+Visit 127.0.0.1:8000 in your browser to view the application.
 
 ### Credits & Acknowledgements
 Thanks to:
