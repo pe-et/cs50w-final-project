@@ -52,7 +52,7 @@ It's a mobile-responsive app, utilizing Python, Django and Sqlite on the backend
 
 Clone the project
 ```
-   git clone https://github.com/pe-et/cs50w_final_project
+   git clone https://github.com/pe-et/cs50w-final-project
 ```
 cd into the 'btfd' directory (where manage.py is located), create and activate a virtual environment
 ```
