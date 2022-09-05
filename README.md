@@ -6,26 +6,26 @@
 
 ### Introduction
 
-This is my final project for the course: 'CS50's Web Programming with Python and JavaScript' by HarvardX.
+This was my final project for the course "CS50's Web Programming with Python and JavaScript" by HarvardX.
 
-The idea sprung from a common pitfall faced by many aspiring investors:
-What was initially a passive investment strategy (buy and hold), gradually evolves into a fully-fledged trading endeavor to beat the market.
+It's more or less a simplistic 'trading app', where the primary purpose is simply to show if you would have been better off just buying or holding your chosen asset/portfolio, instead of actively managing it (i.e. buying and selling).
 
-A small minority will be successful in this venture. However, the vast majority would be better off leaving the investment alone.
-Given the amount of noise that people experience on a day to day basis, it's easy to skip the basics in favor of shinier things.
+Main reason I did it was because most people intend to buy low and sell high but end up buying high and selling low instead.
+So I felt that was the most important thing to visualize before getting fancy by including a lot of other metrics.
 
-The app's main purpose therefore, is to address one of the most fundamental decisions the novice investor faces:
-Am I a passive or active investor?
+In all it's simplicity, it might help to clarify if one is more suited for active or passive investing.
 
 
 ### App Features
 
 In order to view the app, one must either log in to an existing account or create a new one.
 
-Upon registration, the user is prompted to specify their 'initial stack'.
-The initial stack is whatever amount a user has devoted to finding out what type of investor they are (sometimes called a 'trading stack', it denotes whatever amount of the total investment the investor is willing to lose).
+Upon registration, the user is prompted to specify their 'initial stack' (I should probably have used a slightly less 'hacky' name).
+The initial stack is whatever amount a user has devoted to finding out what type of investor they are.
 
 The initial stack is stored as a database entry and used as a benchmark reference to help the user track where they currently stand compared to a passive 'buy and hold' strategy.
+
+The application also displays average purchase price and average selling price, and includes a complete record of user transactions.
 
 #### Market page
 
