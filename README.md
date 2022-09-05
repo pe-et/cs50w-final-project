@@ -49,29 +49,31 @@ While my final project may borrow working parts or features from previous projec
 It's a mobile-responsive app, utilizing Python, Django and Sqlite on the backend and using HTML, CSS, JavaScript, Bootstrapa and SASS to handle the front end.
 
 ### How to Install and Run the Application
-
-Clone the project
-```
-   git clone https://github.com/pe-et/cs50w-final-project
-```
-cd into the 'btfd' directory (where manage.py is located), create and activate a virtual environment
+Create and activate a virtual environment in an empty folder
 ```
    python -m venv .venv
    .venv/Scripts/Activate.ps1
 ```
+Clone the project
+```
+   git clone https://github.com/pe-et/cs50w-final-project
+```
+cd into project folder (folder where requirements.txt is located)
 Install dependencies
 ```
    pip install -r requirements.txt
 ```
+Obtain an api key from openexchangerates.org
 Generate a new secret key
 ```
    python -c "import secrets; print(secrets.token_urlsafe())"
 ```
-Create a .env file in the same directory as manage.py. Copy paste the secret key into it along with the following:
+Create a .env file in the project folder (where manage.py is located). Copy paste the secret key and the api key into it along with the following:
 ```
    DEBUG=True
-   SECRET_KEY=<secret key goes here>
    DATABASE_URL=sqlite:///db.sqlite3
+   SECRET_KEY=<secret key goes here>
+   OPENEXCHANGERATES_API=<api key goes here>
 ```
 Make migrations
 ```
